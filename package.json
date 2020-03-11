@@ -1,0 +1,23 @@
+{
+  "name": "lumo-desafio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node index.js",
+    "init-db": "npx babel-node init_db.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "apollo-server": "^2.11.0",
+    "knex": "^0.20.11",
+    "lodash": "^4.17.15",
+    "pg": "^7.18.2"
+  }
+}
