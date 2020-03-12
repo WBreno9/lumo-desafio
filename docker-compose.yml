@@ -1,0 +1,21 @@
+version: '3'
+services: 
+  api_server:
+    build: .
+    ports: 
+      - "4000:4000"
+    volumes: 
+      - .:/usr/src/app
+    depends_on: 
+      - postgres-db
+    environment: 
+      DB: props_db
+      DB_HOST: postgres-db
+      DB_PASSWORD: lumo
+
+  postgres-db:
+    image: postgres
+    environment: 
+      POSTGRES_DB: props_db
+      POSTGRES_PASSWORD: lumo
+  
