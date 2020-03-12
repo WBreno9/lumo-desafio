@@ -49,40 +49,40 @@ async function insertAutorias() {
 
 
 async function createAutores() {
-  if (!await pg.schema.hasTable('autores')) {
+  if (!(await pg.schema.hasTable('autores'))) {
     await pg.schema.createTable('autores', (table) => {
       table.integer('idAutor').primary().notNullable();
       table.string('nomeAutor').notNullable();
       table.string('siglaPartidoAutor').notNullable();
     });
 
-    await insertAutorias();    
+    await insertAutores();    
   }
 }
 
 async function createProposicoes() {
-  if (!await pg.schema.hasTable('proposicoes')) {
+  if (!(await pg.schema.hasTable('proposicoes'))) {
     await pg.schema.createTable('proposicoes', (table) => {
       table.integer('id').primary().notNullable();
       table.text('ementa').notNullable();
       table.string('descricaoTipo').notNullable();
       table.timestamp('dataApresentacao').notNullable();
     });
-  }
 
-  await insertProposicoes();
+    await insertProposicoes();
+  }
 }
 
 async function createAutorias() {
-  if (!await pg.schema.hasTable('autorias')) {
+  if (!(await pg.schema.hasTable('autorias'))) {
     await pg.schema.createTable('autorias', (table) => {
       table.increments('id');
       table.integer('idAutor').notNullable().references('autores.idAutor');
       table.integer('idProposicao').notNullable().references('proposicoes.id');
     });
-  }
 
-  await insertAutorias();
+    await insertAutorias();
+  }
 }
 
 async function createTables() {
